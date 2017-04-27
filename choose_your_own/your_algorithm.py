@@ -33,7 +33,23 @@ plt.show()
 
 
 
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+from sklearn.svm import SVC
 
+#clf = tree.DecisionTreeClassifier(min_samples_split=40)
+
+
+#clf = AdaBoostClassifier(algorithm='SAMME', n_estimators=100)
+clf = SVC(C=1000000, gamma='auto', kernel='rbf')
+clf.fit(features_train, labels_train)
+
+pred = clf.predict(features_test)
+
+accu = accuracy_score(labels_test, pred)
+
+print "training accuracy:", accu
 
 
 

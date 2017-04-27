@@ -19,7 +19,7 @@ def prettyPicture(clf, X_test, y_test):
     plt.xlim(xx.min(), xx.max())
     plt.ylim(yy.min(), yy.max())
 
-    plt.pcolormesh(xx, yy, Z, cmap=pl.cm.seismic)
+    plt.pcolormesh(xx, yy, Z, cmap=plt.cm.seismic)
 
     # Plot also the test points
     grade_sig = [X_test[ii][0] for ii in range(0, len(X_test)) if y_test[ii]==0]
@@ -33,7 +33,10 @@ def prettyPicture(clf, X_test, y_test):
     plt.xlabel("bumpiness")
     plt.ylabel("grade")
 
-    plt.savefig("test.png")
+    plt.show()
+    plt.draw()
+
+    plt.savefig("test.png", dpi=100)
 
 import base64
 import json
