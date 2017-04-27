@@ -24,37 +24,44 @@ plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
 plt.legend()
 plt.xlabel("bumpiness")
 plt.ylabel("grade")
-plt.show()
+#plt.show()
 ################################################################################
 
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
+def clfVis(clf):
+    clf.fit(features_train, labels_train)
+    pred = clf.predict(features_test)
 
+    accu = accuracy_score(labels_test, pred)
+    print "training accuracy", clf.__class__.__name__, ":", accu
+
+    try:
+        prettyPicture(clf, features_test, labels_test)
+    except NameError:
+        pass
 
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn import tree
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 
-#clf = tree.DecisionTreeClassifier(min_samples_split=40)
 
+clf = AdaBoostClassifier(algorithm='SAMME', n_estimators=100)
+clf2 = SVC(C=1000000, gamma='auto', kernel='rbf')
+clf3 = tree.DecisionTreeClassifier(min_samples_split=40)
 
-#clf = AdaBoostClassifier(algorithm='SAMME', n_estimators=100)
-clf = SVC(C=1000000, gamma='auto', kernel='rbf')
-clf.fit(features_train, labels_train)
-
-pred = clf.predict(features_test)
-
-accu = accuracy_score(labels_test, pred)
-
-print "training accuracy:", accu
+clfVis(clf)
+clfVis(clf2)
+clfVis(clf3)
 
 
 
 
-try:
-    prettyPicture(clf, features_test, labels_test)
-except NameError:
-    pass
+
+
+
+
+
