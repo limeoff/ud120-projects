@@ -13,7 +13,22 @@ features = ["salary", "bonus"]
 data = featureFormat(data_dict, features)
 
 
+data.sort(axis=0)
+#print data
+#print data[:-1]
+
+data = data[:-1]
+
+#data.pop( key, 0 )
+
 ### your code below
 
+for point in data:
+    salary = point[0]
+    bonus = point[1]
+    matplotlib.pyplot.scatter( salary, bonus )
 
+matplotlib.pyplot.xlabel("salary")
+matplotlib.pyplot.ylabel("bonus")
+matplotlib.pyplot.show()
 
