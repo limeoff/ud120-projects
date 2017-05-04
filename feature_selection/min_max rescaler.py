@@ -18,14 +18,13 @@ print rescaled_weight
 ### data point has the same value for that feature!
 ### why would you rescale it?  Or even use it at all?
 def featureScaling(arr):
-    arr2 = []
 
     #for a in arr:
     #    arr2.append((float(a)-min(arr))/(max(arr)-min(arr)))
 
-    arr2 = [((float(a)-min(arr))/(max(arr)-min(arr))) for a in arr]
+    arr = [((float(a)-min(arr))/(max(arr)-min(arr))) for a in arr]
 
-    return arr2
+    return arr
 
 
 # tests of your feature scaler--line below is input data
