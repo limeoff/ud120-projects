@@ -47,7 +47,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             #print counter, path
             email = open(path, "r")
 
-            remove_words = ["sara", "shackleton", "chris", "germani"]
+            remove_words = ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]
 
             ### use parseOutText to extract the text from the opened email
             stemmed_str = str(parseOutText(email))
